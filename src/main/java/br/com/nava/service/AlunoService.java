@@ -5,6 +5,10 @@ import java.util.Optional;
 
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.com.nava.entity.Aluno;
@@ -21,6 +25,12 @@ public class AlunoService {
 	public List<Aluno> listaTodosAlunos(){
 		return alunoRepo.findAll();		
 	}
+	
+	// criar um método para paginação
+			public Page<Aluno> buscaPorPaginacao(int pagina, int linhasPagina, String direction, String orderBy){
+				PageRequest pageRequest = PageRequest.of(pagina, linhasPagina, Direction.valueOf(direction), orderBy);
+				return new PageImpl<>(alunoRepo.findAll(), pageRequest, linhasPagina);
+			}
 	
 	//busca por id
 	public Aluno buscaPorID(Integer id) throws ObjectNotFoundException{
