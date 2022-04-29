@@ -14,7 +14,7 @@ import br.com.nava.entity.Avaliacao;
 import br.com.nava.entity.Disciplina;
 import br.com.nava.entity.Turma;
 import br.com.nava.repository.AlunoRepository;
-import br.com.nava.repository.AvaliacaoRepository;
+//import br.com.nava.repository.AvaliacaoRepository;
 import br.com.nava.service.AvaliacaoService;
 import br.com.nava.service.DisciplinaService;
 import br.com.nava.service.TurmaService;
